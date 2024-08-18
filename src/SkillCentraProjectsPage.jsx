@@ -16,12 +16,6 @@ const SkillCentraProjectsPage = () => {
 
   return (
     <div className={`overflow-x-hidden `}>
-      {/* Register Form */}
-
-      {isFormOpen && (
-        <RegistorForm isFormOpen={isFormOpen} SetFormOpen={SetFormOpen} />
-      )}
-
       {/* HEADER COMPONENT*/}
       <div className="text-white flex w-full flex-row h-3/4">
         <div className="w-2/5 md:w-2/5 bg-[#17212E] pb-10">
@@ -95,6 +89,12 @@ const SkillCentraProjectsPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Register Form */}
+
+      {isFormOpen && (
+        <RegistorForm isFormOpen={isFormOpen} SetFormOpen={SetFormOpen} />
+      )}
     </div>
   );
 };

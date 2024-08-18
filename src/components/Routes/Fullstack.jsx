@@ -26,12 +26,6 @@ const Fullstack = () => {
 
   return (
     <div className="overflow-x-hidden">
-      {/* Register Form */}
-
-      {isFormOpen && (
-        <RegistorForm isFormOpen={isFormOpen} SetFormOpen={SetFormOpen} />
-      )}
-
       {/* Header */}
       <div className="flex flex-row bg-[#17212E]">
         {/*left part */}
@@ -170,6 +164,11 @@ const Fullstack = () => {
           </div>
         </div>
       </div>
+      {/* Register Form */}
+
+      {isFormOpen && (
+        <RegistorForm isFormOpen={isFormOpen} SetFormOpen={SetFormOpen} />
+      )}
       <div className="w-full h-20 mt-16 bg-white"></div>
     </div>
   );
