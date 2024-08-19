@@ -5,6 +5,7 @@ import { FaTasks } from "react-icons/fa";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { BsStackOverflow } from "react-icons/bs";
 import premiumFooter from "../../Images/premiumFooter.png";
+import syllabus from "./AdvSyllabus.json";
 
 const Premium = () => {
   const [selectedTab, setSelectedTab] = useState("Syllabus");
@@ -24,263 +25,34 @@ const Premium = () => {
       case "Syllabus":
         return (
           <div className="space-y-4">
-            {/* Day1 */}
-            <div>
-              <div
-                onClick={() => toggleDay(1)}
-                className="cursor-pointer bg-[#D9D9D966] rounded-md border-[0.1px] text-lg border-gray- p-4 rounded-t-lg"
-              >
-                Day 1: Introduction
-              </div>
-              <div
-                className={`overflow-hidden duration-500 ${
-                  expandedDay === 1 ? "max-h-screen" : "max-h-0"
-                }`}
-              >
-                {/* Contents div */}
-                <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md">
-                    Content for Day 1
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 1: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 2: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 3: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 4: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 5: Daily Task
-                  </p>
+            {/* Render each day using map */}
+            {syllabus.days.map((dayData) => (
+              <div key={dayData.day}>
+                <div
+                  onClick={() => toggleDay(dayData.day)}
+                  className="cursor-pointer bg-[#D9D9D966] rounded-md border-[0.1px] text-lg border-gray- p-4 rounded-t-lg"
+                >
+                  {dayData.title}
+                </div>
+                <div
+                  className={`overflow-hidden duration-500 ${
+                    expandedDay === dayData.day ? "max-h-screen" : "max-h-0"
+                  }`}
+                >
+                  {/* Render modules */}
+                  <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
+                    {dayData.modules.map((module, index) => (
+                      <p
+                        key={index}
+                        className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1"
+                      >
+                        {module}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Day2 */}
-            <div>
-              <div
-                onClick={() => toggleDay(2)}
-                className="cursor-pointer bg-[#D9D9D966] p-4"
-              >
-                Day 2: Topic
-              </div>
-              <div
-                className={`overflow-hidden  duration-500 ${
-                  expandedDay === 2 ? "max-h-screen" : "max-h-0"
-                }`}
-              >
-                {/* Contents Div */}
-                <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md">
-                    Content for Day 1
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 1: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 2: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 3: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 4: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 5: Daily Task
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Day3 */}
-            <div>
-              <div
-                onClick={() => toggleDay(3)}
-                className="cursor-pointer bg-[#D9D9D966] p-4"
-              >
-                Day 3: Topic
-              </div>
-              <div
-                className={`overflow-hidden duration-500  ${
-                  expandedDay === 3 ? "max-h-screen" : "max-h-0"
-                }`}
-              >
-                {/* Contents Div */}
-                <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md">
-                    Content for Day 1
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 1: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 2: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 3: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 4: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 5: Daily Task
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Day4 */}
-            <div>
-              <div
-                onClick={() => toggleDay(4)}
-                className="cursor-pointer bg-[#D9D9D966] p-4 rounded-b-lg"
-              >
-                Day 4: Topic
-              </div>
-              <div
-                className={`overflow-hidden duration-500 ${
-                  expandedDay === 4 ? "max-h-screen" : "max-h-0"
-                }`}
-              >
-                <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md">
-                    Content for Day 1
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 1: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 2: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 3: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 4: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 5: Daily Task
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Day 5 */}
-            <div>
-              <div
-                onClick={() => toggleDay(5)}
-                className="cursor-pointer bg-[#D9D9D966] p-4"
-              >
-                Day 5: Topic
-              </div>
-              <div
-                className={`overflow-hidden  duration-500 ${
-                  expandedDay === 5 ? "max-h-screen" : "max-h-0"
-                }`}
-              >
-                {/* Contents Div */}
-                <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md">
-                    Content for Day 1
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 1: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 2: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 3: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 4: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 5: Daily Task
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Day 6 */}
-            <div>
-              <div
-                onClick={() => toggleDay(6)}
-                className="cursor-pointer bg-[#D9D9D966] p-4"
-              >
-                Day 6: Topic
-              </div>
-              <div
-                className={`overflow-hidden  duration-500 ${
-                  expandedDay === 6 ? "max-h-screen" : "max-h-0"
-                }`}
-              >
-                {/* Contents Div */}
-                <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md">
-                    Content for Day 1
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 1: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 2: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 3: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 4: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 5: Daily Task
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Day 7 */}
-            <div>
-              <div
-                onClick={() => toggleDay(7)}
-                className="cursor-pointer bg-[#D9D9D966] p-4"
-              >
-                Day 7: Topic
-              </div>
-              <div
-                className={`overflow-hidden  duration-500 ${
-                  expandedDay === 7 ? "max-h-screen" : "max-h-0"
-                }`}
-              >
-                {/* Contents Div */}
-                <div className="p-4 bg-gray-100 md:mx-14 mx-2 my-4">
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md">
-                    Content for Day 1
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 1: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 2: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 3: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 4: What you gonna learn
-                  </p>
-                  <p className="text-lg p-4 bg-[#D9D9D966] rounded-md my-1">
-                    Module 5: Daily Task
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         );
       case "Daily Tasks":
